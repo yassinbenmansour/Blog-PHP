@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,7 +47,9 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="#"><?php
+          echo "Dashbord"
+  ?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
@@ -99,3 +102,5 @@
 
 </body>
 </html>
+
+
