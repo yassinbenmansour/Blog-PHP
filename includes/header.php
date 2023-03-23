@@ -1,5 +1,8 @@
-<!DOCTYPE html>
+<?php
 
+require ('./Database/connexion.php')
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
