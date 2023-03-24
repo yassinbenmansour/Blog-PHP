@@ -1,6 +1,7 @@
 <?php
 
-require ('./Database/connexion.php')
+require ('./Database/connexion.php');
+require('./Database/functions.php');
 
 ?>
 <html lang="en">

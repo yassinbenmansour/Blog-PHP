@@ -14,6 +14,10 @@
 
                 while($articles = $output->fetch_assoc()):
             ?>
+
+            <?php
+            $categorie = affCategorie($con,$articles['category_id']);
+            ?>
                     <div class="col-4 ">
                         <img
                         src="https://cdn.pixabay.com/photo/2015/05/31/15/07/coffee-792113_1280.jpg"
@@ -22,40 +26,38 @@
                         />
                     </div>
                     <div class="col-8">
-                        <h1 class="">Title</h1><span class="badge rounded-pill badge-success ">Categorie</span>
-                        <span class="badge rounded-pill text-primary"><?php echo date('y/m/d') ?></span>
-                        <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum necessitatibus nobis perferendis laudantium architecto enim ut facere magni animi id, aliquid illo ipsum cumque debitis eum vel magnam dolores excepturi.</p>
-                        
+                        <h1 class=""><?php echo $articles['title']?></h1>
+                        <span class="badge rounded-pill badge-success "><?php echo $categorie["name"]  ?></span>
+                        <span class="badge rounded-pill text-primary"><?php echo $articles['created']?></span>
+                        <p><?php echo $articles['body']?></p>        
+                        <p class="badge badge-primary">Created by : <?php echo $articles['author']?></p> 
+                        <a href="#" class="float-end btn btn-primary">Read more</a>
                     </div>
-
-
                     <?php
                 endwhile;
             ?>
-                        
-
             </div>
-            
-
-        
-            
         </div>
-
-        
     </div>
-    
 
     <div class="col-lg-4 col-md-12 col-sm-12 mt-5">
+            
                 <ul class="list-group">
                     <li class="list-group-item bg-primary text-white">Catégories</li>
-                    <li class="list-group-item">Javascript</li>
-                    <li class="list-group-item">php</li>
-                    <li class="list-group-item">laravel</li>
-                    <li class="list-group-item">node js</li>
-                    <li class="list-group-item">html</li>
-                    <li class="list-group-item">css</li>
-                </ul>
-
+                    <?php
+                        $sql = "SELECT * FROM categories";
+                        $result = mysqli_query($con,$sql);
+                        while($categorie = $result->fetch_assoc()):
+                    ?>
+                    <li class="list-group-item text-dark">
+                        <a href="categoriePost.php?id=<?php echo $categorie['id']?>">
+                        <?php echo $categorie['name']?></li>
+                    </a>
+               
+                <?php
+                endwhile;
+            ?>
+             </ul>
         <ul class="list-group mt-3">
             <li class="list-group-item bg-primary text-white">Derniers articles</li>
             <li class="list-group-item">
@@ -114,5 +116,4 @@
 
 <?php
 require('./includes/footer.php');
-
 ?>
