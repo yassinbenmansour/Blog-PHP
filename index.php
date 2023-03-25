@@ -3,13 +3,13 @@
 ?>
 
 <div class="container ">
-  <div class="row g-2">
+  <div class="row g-2 mb-3">
     <div class="col-lg-8 col-md-12 col-sm-12 border mt-5 rounded shadow">
       <div class="p-3">
             <div class="row">
 
             <?php
-                $sql = "SELECT * FROM articles";
+                $sql = "SELECT * FROM articles ORDER BY created DESC";
                 $output = mysqli_query($con,$sql);
 
                 while($articles = $output->fetch_assoc()):
@@ -18,14 +18,14 @@
             <?php
             $categorie = affCategorie($con,$articles['category_id']);
             ?>
-                    <div class="col-4 ">
+                    <div class="col-4 mt-2 ">
                         <img
                         src="https://cdn.pixabay.com/photo/2015/05/31/15/07/coffee-792113_1280.jpg"
                         class="img-fluid rounded"
                         alt="Hollywood Sign on The Hill"
                         />
                     </div>
-                    <div class="col-8">
+                    <div class="col-8 ">
                         <h1 class=""><?php echo $articles['title']?></h1>
                         <span class="badge rounded-pill badge-success "><?php echo $categorie["name"]  ?></span>
                         <span class="badge rounded-pill text-primary"><?php echo $articles['created']?></span>
@@ -49,7 +49,7 @@
                         $result = mysqli_query($con,$sql);
                         while($categorie = $result->fetch_assoc()):
                     ?>
-                    <li class="list-group-item text-dark">
+                    <li class="list-group-item text-dark hover">
                         <a href="categoriePost.php?id=<?php echo $categorie['id']?>">
                         <?php echo $categorie['name']?></li>
                     </a>
@@ -60,8 +60,15 @@
              </ul>
         <ul class="list-group mt-3">
             <li class="list-group-item bg-primary text-white">Derniers articles</li>
+
+            <?php
+                $sql = "SELECT * FROM articles ORDER BY created DESC LIMIT 3";
+                $output = mysqli_query($con,$sql);
+
+                while($articles = $output->fetch_assoc()):
+            ?>
             <li class="list-group-item">
-                <div class="row">
+                <div class="row bg-light border border-primary p-2">
                     <div class="col-4">
                         <img
                             src="https://cdn.pixabay.com/photo/2015/05/31/15/07/coffee-792113_1280.jpg"
@@ -70,41 +77,14 @@
                         />                    
                     </div>
                     <div class="col-8">
-                        <h4>Title first article</h4>
-                        <p>Lorem ipsum, dolor sit...</p>
+                        <h4><?php echo $articles['title']?></h4>
+                        <p><?php echo $articles['body']?></p>
                     </div>
                 </div>
             </li>
-            <li class="list-group-item">
-            <div class="row">
-                    <div class="col-4">
-                        <img
-                            src="https://cdn.pixabay.com/photo/2015/05/31/15/07/coffee-792113_1280.jpg"
-                            class="img-fluid"
-                            alt="Hollywood Sign on The Hill"
-                        />                    
-                    </div>
-                    <div class="col-8">
-                        <h4>Title first article</h4>
-                        <p>Lorem ipsum, dolor sit...</p>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-            <div class="row">
-                    <div class="col-4">
-                        <img
-                            src="https://cdn.pixabay.com/photo/2015/05/31/15/07/coffee-792113_1280.jpg"
-                            class="img-fluid"
-                            alt="Hollywood Sign on The Hill"
-                        />                    
-                    </div>
-                    <div class="col-8">
-                        <h4>Title first article</h4>
-                        <p>Lorem ipsum, dolor sit...</p>
-                    </div>
-                </div>
-            </li>
+            <?php
+                endwhile;
+            ?>
         </ul>
     
 
