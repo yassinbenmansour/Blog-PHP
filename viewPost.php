@@ -9,10 +9,12 @@
             <div class="row ">
 
             <?php
-                $sql = "SELECT * FROM articles ORDER BY created DESC";
+            $idArticle = mysqli_escape_string($con,$_GET['id']);
+                $sql = "SELECT * FROM articles WHERE id = '$idArticle'";
                 $output = mysqli_query($con,$sql);
 
-                while($articles = $output->fetch_assoc()):
+                $articles = $output->fetch_assoc();
+                if ($articles !== null):
             ?>
 
             <?php
@@ -31,11 +33,15 @@
                         <span class="badge rounded-pill text-primary"><?php echo $articles['created']?></span>
                         <p><?php echo $articles['body']?></p>        
                         <p class="badge badge-primary">Created by : <?php echo $articles['author']?></p> 
-                        <a href="viewPost.php?id=<?php echo $articles['id']?>" class="float-end btn btn-primary">Read more</a>
                     </div>
-                    
+
                     <?php
-                endwhile;
+                        else: 
+                    ?>
+
+                    <div class="alert-warning alert">Auncun Article trouver</div>
+                    <?php
+                endif;
             ?>
             </div>
         </div>
@@ -78,7 +84,7 @@
                         />                    
                     </div>
                     <div class="col-8">
-                        <h4><a href="viewPost.php?id=<?php echo $articles['id']?>"><?php echo $articles['title']?></a></h4>
+                        <h4><?php echo $articles['title']?></h4>
                         <p><?php echo $articles['body']?></p>
                     </div>
                 </div>
