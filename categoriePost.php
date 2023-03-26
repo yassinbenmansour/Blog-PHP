@@ -10,7 +10,7 @@
 
             <?php
             $idArticle = mysqli_escape_string($con,$_GET['id']);
-                $sql = "SELECT * FROM articles WHERE id = '$idArticle'";
+                $sql = "SELECT * FROM articles WHERE category_id = '$idArticle'";
                 $output = mysqli_query($con,$sql);
 
                 $articles = $output->fetch_assoc();
@@ -39,7 +39,7 @@
                         else: 
                     ?>
 
-                    <div class="alert-warning alert">Auncun Article trouver</div>
+                    <div class="alert-warning alert">Auncun categorie trouver</div>
                     <?php
                 endif;
             ?>

@@ -51,12 +51,7 @@ require('./Database/functions.php');
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#"><?php
-          echo "Dashbord"
-  ?></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="index.php">Accueil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
@@ -96,6 +91,12 @@ require('./Database/functions.php');
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
+
+
+
+<div>
+  <img src="https://www.netty.fr/blog/wp-content/uploads/2020/09/Comment-gerer-sa-E-reputation.gif" alt="annonce" style="width: 100%; height:60%;">
+</div>
     
 
 <!-- MDB -->
