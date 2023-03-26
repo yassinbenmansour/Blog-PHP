@@ -93,12 +93,6 @@ require('./Database/functions.php');
 <!-- Navbar -->
 
 
-
-<div>
-  <img src="https://www.netty.fr/blog/wp-content/uploads/2020/09/Comment-gerer-sa-E-reputation.gif" alt="annonce" style="width: 100%; height:60%;">
-</div>
-    
-
 <!-- MDB -->
 <script
   type="text/javascript"

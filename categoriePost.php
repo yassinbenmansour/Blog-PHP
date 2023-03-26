@@ -13,8 +13,8 @@
                 $sql = "SELECT * FROM articles WHERE category_id = '$idArticle'";
                 $output = mysqli_query($con,$sql);
 
-                $articles = $output->fetch_assoc();
-                if ($articles !== null):
+                    while($articles = $output->fetch_assoc()):
+                    
             ?>
 
             <?php
@@ -28,21 +28,19 @@
                         />
                     </div>
                     <div class="col-8  ">
-                        <h1 class=""><?php echo $articles['title']?></h1>
+                        <h3 class=""><?php echo $articles['title']?></h3>
                         <span class="badge rounded-pill badge-success "><?php echo $categorie["name"]  ?></span>
                         <span class="badge rounded-pill text-primary"><?php echo $articles['created']?></span>
                         <p><?php echo $articles['body']?></p>        
                         <p class="badge badge-primary">Created by : <?php echo $articles['author']?></p> 
                     </div>
+                    
+                <?php    
+                endwhile;
 
-                    <?php
-                        else: 
-                    ?>
+                    
+                ?>
 
-                    <div class="alert-warning alert">Auncun categorie trouver</div>
-                    <?php
-                endif;
-            ?>
             </div>
         </div>
     </div>
@@ -54,8 +52,10 @@
                     <?php
                         $sql = "SELECT * FROM categories";
                         $result = mysqli_query($con,$sql);
+                        
                         while($categorie = $result->fetch_assoc()):
                     ?>
+                
                     <li class="list-group-item text-dark bg-light border border-primary p-2">
                         <a href="categoriePost.php?id=<?php echo $categorie['id']?>">
                         <?php echo $categorie['name']?></li>
@@ -84,7 +84,7 @@
                         />                    
                     </div>
                     <div class="col-8">
-                    <h4><a href="viewPost.php?id=<?php echo $articles['id']?>"><?php echo $articles['title']?></a></h4>
+                    <h6><a href="viewPost.php?id=<?php echo $articles['id']?>"><?php echo $articles['title']?></a></h6>
                         <p><?php echo $articles['body']?></p>
                     </div>
                 </div>

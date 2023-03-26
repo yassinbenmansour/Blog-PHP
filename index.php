@@ -9,7 +9,7 @@
             <div class="row ">
 
             <?php
-                $sql = "SELECT * FROM articles ORDER BY created DESC";
+                $sql = "SELECT * FROM articles ORDER BY created DESC limit 3";
                 $output = mysqli_query($con,$sql);
 
                 while($articles = $output->fetch_assoc()):
