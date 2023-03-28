@@ -9,7 +9,13 @@
             <div class="row ">
 
             <?php
-                $sql = "SELECT * FROM articles ORDER BY created DESC limit 3";
+
+                $start = 0 ;
+                $limit = 4 ;
+                $page = isset($_GET['post']) ? $_GET['post'] : 1 ;
+                $start = ($page * 4 ) - 4 ; //mnin ray recuupere article 
+
+                $sql = "SELECT * FROM articles ORDER BY created DESC limit $start,$limit ";
                 $output = mysqli_query($con,$sql);
 
                 while($articles = $output->fetch_assoc()):
@@ -38,6 +44,21 @@
                 endwhile;
             ?>
             </div>
+
+
+            <div class="col-md-4">
+                <?php 
+
+                $query = " SELECT count(id) FROM articles " ;
+                $output = mysqli_query($con,$query);
+                $articles = $output->fetch_row();
+
+                $totalArticles = $articles[0] ; // total dyal les articles
+
+                $totalpost = ceil($totalArticles / $limit); // les pages
+
+                ?>
+            </div>
         </div>
     </div>
 
@@ -63,6 +84,7 @@
             <li class="list-group-item bg-primary text-white">Derniers articles</li>
 
             <?php
+
                 $sql = "SELECT * FROM articles ORDER BY created DESC LIMIT 3";
                 $output = mysqli_query($con,$sql);
 
