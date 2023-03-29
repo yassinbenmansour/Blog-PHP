@@ -15,7 +15,7 @@
                 } else {
                     $pageno = 1;
                 }
-                $no_of_records_per_page = 2;
+                $no_of_records_per_page = 3;
                 $offset = ($pageno-1) * $no_of_records_per_page;
 
 
@@ -79,7 +79,7 @@
                         <a class="page-link" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>"><< Prev</a>
                     </li>
                     <li class="page-item<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
-                        <a class="page-link" href="page-item<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next >></a>
+                        <a class="page-link" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next >></a>
                     </li>
                     <li class="page-item border border-primary rounded">
                         <a class="page-link" href="?pageno=<?php echo $total_pages; ?>">Last</a>
