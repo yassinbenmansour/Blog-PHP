@@ -39,7 +39,6 @@
 
                 //$sql = "SELECT * FROM articles ORDER BY created DESC";
                 //$output = mysqli_query($con,$sql);
-
                 //while($articles = $output->fetch_assoc()):
 
                 
@@ -68,6 +67,9 @@
                 endwhile;
             ?>
             </div>
+
+
+            <!-- Pagination  -->
             <nav class="pt-5 text-primary ">
                 <ul class="pagination justify-content-center  ">
                     <li class="page-item border border-primary rounded">
