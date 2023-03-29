@@ -15,18 +15,18 @@
                 } else {
                     $pageno = 1;
                 }
-                $no_of_records_per_page = 3;
-                $offset = ($pageno-1) * $no_of_records_per_page;
+                $nbr_article = 3;
+                $offset = ($pageno -1) * $nbr_article;
 
 
                 $total_pages_sql = "SELECT COUNT(*) FROM articles";
 
                 $result = mysqli_query($con,$total_pages_sql);
                 $total_rows = mysqli_fetch_array($result)[0];
-                $total_pages = ceil($total_rows / $no_of_records_per_page);
+                $total_pages = ceil($total_rows / $nbr_article);
 
 
-                $sql = "SELECT * FROM articles LIMIT $offset, $no_of_records_per_page";
+                $sql = "SELECT * FROM articles LIMIT $offset, $nbr_article";
                 
                 $output = mysqli_query($con,$sql);
                 while($articles = $output->fetch_assoc()):
@@ -67,9 +67,7 @@
                 endwhile;
             ?>
             </div>
-
-
-            <!-- Pagination  -->
+       <!-- Pagination  -->
             <nav class="pt-5 text-primary ">
                 <ul class="pagination justify-content-center  ">
                     <li class="page-item border border-primary  rounded shadow-lg">
@@ -86,13 +84,7 @@
                     </li>
                 </ul>
             </nav>
-
-
-           
-
-
-            
-            
+             
         </div>
     </div>
 
