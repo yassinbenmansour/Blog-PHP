@@ -10,12 +10,39 @@
 
             <?php
 
-                 
+                if (isset($_GET['pageno'])) {
+                    $pageno = $_GET['pageno'];
+                } else {
+                    $pageno = 1;
+                }
+                $no_of_records_per_page = 2;
+                $offset = ($pageno-1) * $no_of_records_per_page;
 
-                $sql = "SELECT * FROM articles ORDER BY created DESC ";
+
+                $total_pages_sql = "SELECT COUNT(*) FROM articles";
+
+                $result = mysqli_query($con,$total_pages_sql);
+                $total_rows = mysqli_fetch_array($result)[0];
+                $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+
+                $sql = "SELECT * FROM articles LIMIT $offset, $no_of_records_per_page";
+                
                 $output = mysqli_query($con,$sql);
-
                 while($articles = $output->fetch_assoc()):
+
+
+
+
+
+
+
+                //$sql = "SELECT * FROM articles ORDER BY created DESC";
+                //$output = mysqli_query($con,$sql);
+
+                //while($articles = $output->fetch_assoc()):
+
+                
             ?>
 
             <?php
@@ -41,6 +68,25 @@
                 endwhile;
             ?>
             </div>
+            <nav class="pt-5 text-primary ">
+                <ul class="pagination justify-content-center  ">
+                    <li class="page-item border border-primary rounded">
+                        <a class="page-link" href="?pageno=1">First</a>
+                    </li>
+                    <li class="page-item<?php if($pageno <= 1){ echo 'disabled'; } ?>">
+                        <a class="page-link" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>"><< Prev</a>
+                    </li>
+                    <li class="page-item<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+                        <a class="page-link" href="page-item<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next >></a>
+                    </li>
+                    <li class="page-item border border-primary rounded">
+                        <a class="page-link" href="?pageno=<?php echo $total_pages; ?>">Last</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+           
 
 
             
