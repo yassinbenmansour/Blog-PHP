@@ -66,15 +66,16 @@ require('./Database/functions.php');
       </ul>
 
 
+      <form action="resultsearch.php" method="get">
+        <div class="input-group">
+           <input type="text" class="form-control mx-2 rounded-5" placeholder="search article ..." name="chaine">
+           <div class="input-group-append">
+            <input class="btn btn-success" type="submit" value="search">
+           </div>
+        </div>
+      </form>
 
 
-      <?php 
-
-        $nom = $_POST['nom'];
-        if(!empty($nom)){
-          header('Location:./resultsearch.php'); 
-        }
-      ?>
 
 
     </div>
@@ -82,12 +83,6 @@ require('./Database/functions.php');
   <!-- Container wrapper -->
 </nav>
 
-
-<div>
-  <form action="./resultsearch.php" method="post">
-    <input type="search" >
-  </form>
-</div>
 
 <!-- MDB -->
 <script
