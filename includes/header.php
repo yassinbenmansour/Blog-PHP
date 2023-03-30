@@ -64,34 +64,30 @@ require('./Database/functions.php');
         </li>
        
       </ul>
-      <!-- Left links -->
-    </div>
-    <!-- Collapsible wrapper -->
 
-    <!-- Right elements -->
-    <div class="d-flex align-items-center">
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </div>
-      
-    <!-- Right elements -->
+
+
+
+      <?php 
+
+        $nom = $_POST['nom'];
+        if(!empty($nom)){
+          header('Location:./resultsearch.php'); 
+        }
+      ?>
+
+
+    </div>
   </div>
   <!-- Container wrapper -->
 </nav>
-<!-- Navbar -->
 
+
+<div>
+  <form action="./resultsearch.php" method="post">
+    <input type="search" >
+  </form>
+</div>
 
 <!-- MDB -->
 <script
