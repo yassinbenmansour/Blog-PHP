@@ -12,9 +12,6 @@
 
             <?php
 	            $query = $_GET['chaine']; 
-                $query = htmlspecialchars($query); 
-
-
                 $sql = "SELECT * FROM articles WHERE title LIKE '%".$query."%' ";
                 $output = mysqli_query($con,$sql);
 
