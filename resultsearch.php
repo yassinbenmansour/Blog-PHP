@@ -12,15 +12,12 @@
 
             <?php
 	            $query = $_GET['chaine']; 
+                if($query == null){
+                    header("Location:index.php");
+                }
                 $sql = "SELECT * FROM articles WHERE title LIKE '%".$query."%' ";
                 $output = mysqli_query($con,$sql);
-
-                
                 while($articles = $output->fetch_assoc()):
-
-                
-
-                
             ?>
 
             <?php

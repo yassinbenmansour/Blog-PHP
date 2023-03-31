@@ -54,7 +54,7 @@ require('./Database/functions.php');
           <a class="nav-link" href="index.php">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="index.php">Articles</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
@@ -64,16 +64,19 @@ require('./Database/functions.php');
         </li>
        
       </ul>
+      
 
 
       <form action="resultsearch.php" method="get">
         <div class="input-group">
-           <input type="text" class="form-control mx-2 rounded-5" placeholder="search article ..." name="chaine">
+           <input type="text" class="form-control mx-2 rounded-5 border border-primary" placeholder="search article ..." name="chaine">
            <div class="input-group-append">
-            <input class="btn btn-success" type="submit" value="search">
+            <input class="btn btn-primary" type="submit" value="search">
            </div>
         </div>
       </form>
+
+      
 
 
 
@@ -82,6 +85,7 @@ require('./Database/functions.php');
   </div>
   <!-- Container wrapper -->
 </nav>
+
 
 
 <!-- MDB -->
