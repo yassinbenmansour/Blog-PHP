@@ -2,7 +2,8 @@
 
 require ('./Database/connexion.php');
 require('./Database/functions.php');
-
+//$pwd = md5($pwd);
+//$sql = "SELECT * FROM users WHERE email = '$mail' AND password = '$pwd'";
 ?>
 <html lang="en">
 <head>
@@ -52,13 +53,10 @@ require('./Database/functions.php');
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        
         <li class="nav-item">
-          <a class="nav-link" href="Register.php">Se Connecter</a>
+          <a class="nav-link" href="seconnecter.php">Se Connecter</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="signup.php">Inscription</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
         </li>
        
       </ul>
@@ -91,7 +89,7 @@ if(isset($_POST['submit'])){
       $message = "<div class='alert alert-success'> 
             Compte cree reussi 
           </div>";
-        header("Location:Register.php");
+        header("Location:seconnecter.php");
     }else {
       $message = "<div class='alert alert-danger'> 
           Erreur ". mysqli_error($con)."

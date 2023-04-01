@@ -59,7 +59,9 @@ require('./Database/functions.php');
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
         </li>
-        <li class="nav-item">
+        
+       
+       <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
        
@@ -71,12 +73,20 @@ require('./Database/functions.php');
         <div class="input-group">
            <input type="text" class="form-control mx-2 rounded-5 border border-primary" placeholder="search article ..." name="chaine">
            <div class="input-group-append">
-            <input class="btn btn-primary" type="submit" value="search">
+            <input class="btn btn-primary mx-2" type="submit" value="search">
            </div>
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      <li class="nav-item">
+          <a class="nav-link" ><img src="https://icon-library.com/images/online-status-icon/online-status-icon-1.jpg" style="width:25;height:20;"> Status</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="seconnecter.php">Deconexion</a>
+        </li>
+      </ul>
+
         </div>
       </form>
-
-      
 
 
 

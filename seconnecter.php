@@ -9,7 +9,7 @@ require('./Database/functions.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content mg System</title>
+    <title>Se connecter</title>
         <!-- Font Awesome -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -52,13 +52,10 @@ require('./Database/functions.php');
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        
         <li class="nav-item">
-          <a class="nav-link" href="Register.php">Se Connecter</a>
+          <a class="nav-link" href="seconnecter.php">Se Connecter</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="signup.php">Inscription</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
         </li>
        
       </ul>
@@ -68,6 +65,49 @@ require('./Database/functions.php');
 </nav>
 
 
+<?php
+$erreur = [];
+$message = "";
+
+if(isset($_POST['submit'])){
+  $mail =  mysqli_escape_string($con,$_POST['mail']);
+  $pwd =  mysqli_escape_string($con,$_POST['pwd']);
+
+  if(empty($mail)){
+    $erreur = "Veillez saisi votre Email ";
+  }else if(empty($pwd)){
+    $erreur = "Veillez saisi votre mot de passe  ";
+  }else{
+    $pwd = md5($pwd); //sha1()
+    $sql = "SELECT * FROM users WHERE email = '$mail' AND password = '$pwd'";
+    if($data = mysqli_query($con,$sql)){
+      $user = $data->num_rows ;
+
+      if($user>0){
+        $datauser = $data->fetch_assoc();
+        $_SESSION['Logged']= true;
+        $_SESSION['User_id'] =$datauser['id'] ;
+        $_SESSION['Name'] = $datauser['name'];
+        $_SESSION['Email'] = $datauser['email'];
+
+        header("Location:index.php");
+
+      
+      }
+      else {
+        $message = "<div class='alert alert-danger'> 
+            Erreur email ou mot de passe incorrect ". mysqli_error($con)."
+        </div>";
+      }
+
+      
+    
+    }
+  }
+
+}
+
+?>
 
 
 <div class="container">
@@ -79,23 +119,43 @@ require('./Database/functions.php');
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
+
+
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Se connecter</p>
 
-                <form class="mx-1 mx-md-4" action="" method="post">
+                <form class="mx-1 mx-md-4" action="./seconnecter.php" method="post">
 
+
+                <?php
+              if(!empty($erreur)){
+                    echo "<div class='alert alert-danger'> 
+                        $erreur
+                    </div>";
+              }else{
+                echo $message ;
+              }
+
+              ?>
+
+                
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" name="username" class="form-control"  />
-                      <label class="form-label">Username</label>
+
+
+
+                      <input type="email" name="mail"  class="form-control"  />
+                      <label class="form-label" >Your Email</label>
+
+
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" name="mdp" class="form-control"  />
-                      <label class="form-label" for="form3Example4c">Password</label>
+                      <input type="password" name="pwd" class="form-control"  />
+                      <label class="form-label" >Password</label>
                     </div>
                   </div>
 
@@ -104,7 +164,7 @@ require('./Database/functions.php');
                   
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-lg">Se connecter</button>
                   </div>
 
                 </form>
@@ -112,7 +172,7 @@ require('./Database/functions.php');
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://img.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg?w=2000"
+                <img src="https://img.freepik.com/vecteurs-libre/sauvez-concept-planete-gens-qui-prennent-soin-terre_23-2148522570.jpg?w=2000"
                   class="img-fluid" alt="Sample image">
 
               </div>
