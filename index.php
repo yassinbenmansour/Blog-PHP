@@ -50,7 +50,7 @@
             ?>
                     <div class="col-4 mt-2 ">
                         <img
-                        src="https://cdn.pixabay.com/photo/2015/05/31/15/07/coffee-792113_1280.jpg"
+                        src="https://img.freepik.com/vecteurs-libre/sauvez-concept-planete-gens-qui-prennent-soin-terre_23-2148522570.jpg?w=2000"
                         class="img-fluid rounded"
                         alt="Hollywood Sign on The Hill"
                         />
@@ -123,7 +123,7 @@
                 <div class="row">
                     <div class="col-4">
                         <img
-                            src="https://cdn.pixabay.com/photo/2015/05/31/15/07/coffee-792113_1280.jpg"
+                            src="https://img.freepik.com/vecteurs-libre/sauvez-concept-planete-gens-qui-prennent-soin-terre_23-2148522570.jpg?w=2000"
                             class="img-fluid rounded"
                             alt="Hollywood Sign on The Hill"
                         />                    

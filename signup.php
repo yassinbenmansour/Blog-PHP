@@ -73,21 +73,35 @@ $erreur = [];
 $message = "";
 
 if(isset($_POST['submit'])){
-  $nom = mysqli_escape_string($con,$_POST['']);
-  $prenom =  mysqli_escape_string($con,$_POST['']);
-  $mail =  mysqli_escape_string($con,$_POST['']);
-  $pwd =  mysqli_escape_string($con,$_POST['']);
+  $nom = mysqli_escape_string($con,$_POST['username']);
+  $mail =  mysqli_escape_string($con,$_POST['mail']);
+  $pwd =  mysqli_escape_string($con,$_POST['pwd']);
+  $created = date("Y-m-d H-s-m");
+
+  if(empty($nom)){
+    $erreur = "Veillez saisi votre Nom ";
+  }else if(empty($mail)){
+    $erreur = "Veillez saisi votre Email ";
+  }else if(empty($pwd)){
+    $erreur = "Veillez saisi votre mot de passe  ";
+  }else{
+    $pwd = md5($pwd);
+    $sql = "INSERT INTO users(name,email,password,created) VALUES('$nom','$mail','$pwd','$created')";
+    if(mysqli_query($con,$sql)){
+      $message = "<div class='alert alert-success'> 
+            Compte cree reussi 
+          </div>";
+        header("Location:Register.php");
+    }else {
+      $message = "<div class='alert alert-danger'> 
+          Erreur ". mysqli_error($con)."
+      </div>";
+    }
+  }
 
 }
 
-
-
-
-
-
 ?>
-
-
 
 
 <div class="container">
@@ -99,9 +113,23 @@ if(isset($_POST['submit'])){
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4" action="singnup.php" method="post">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Inscription</p>
+
+                <form class="mx-1 mx-md-4" action="./signup.php" method="post">
+
+
+                <?php
+              if(!empty($erreur)){
+                    echo "<div class='alert alert-danger'> 
+                        $erreur
+                    </div>";
+              }else{
+                echo $message ;
+              }
+
+              ?>
 
                 <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -153,7 +181,7 @@ if(isset($_POST['submit'])){
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://img.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg?w=2000"
+                <img src="https://img.freepik.com/vecteurs-libre/sauvez-concept-planete-gens-qui-prennent-soin-terre_23-2148522570.jpg?w=2000"
                   class="img-fluid" alt="Sample image">
 
               </div>
