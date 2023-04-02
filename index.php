@@ -1,6 +1,12 @@
 <?php
     require('./includes/header.php');
+
+    if(empty( $_SESSION['Logged'])){
+        header("Location:seconnecter.php");
+    }
+
 ?>
+
 
 <div class="container ">
   <div class="row g-2 mb-3">

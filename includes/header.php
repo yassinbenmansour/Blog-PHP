@@ -66,22 +66,15 @@ require('./Database/functions.php');
         <li class="nav-itemn">
               <div class="dropdown">
                 <a  class="dropdown-toggle nav-link" data-bs-toggle="dropdown" role="button">
-                  Dropdown button
+                  Status
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Link 1</a></li>
-                    <li><a class="dropdown-item" href="#">Link 2</a></li>
-                    <li><a class="dropdown-item" href="#">Link 3</a></li>
-                    <li><a class="dropdown-item-text" href="#">Text Link</a></li>
-                    <li><span class="dropdown-item-text">Just Text</span></li>
+                    <li><a class="nav-link" href="#"><?php echo $_SESSION['Name'] ;?> <img src="https://w7.pngwing.com/pngs/818/576/png-transparent-windows-media-center-computer-icons-button-windows-media-player-button-angle-windows-grass-thumbnail.png" width="13" height="13"></a></li>
+                    <li><a class="nav-link" href="#">Setting profil</a></li>
+                    <li><a class="nav-link" href="deconnexion.php">Deconexion</a></li>
                   </ul>
         </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="seconnecter.php">Deconexion</a>
-        </li>
-          
+        </li>          
         
         <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
@@ -94,16 +87,11 @@ require('./Database/functions.php');
       <form action="resultsearch.php" method="get">
         <div class="input-group">
            <input type="text" class="form-control mx-2 rounded-5 border border-primary" placeholder="search article ..." name="chaine">
-           <div class="input-group-append">
-            <input class="btn btn-primary mx-2" type="submit" value="search">
-           </div>
-
+            <div class="input-group-append">
+              <input class="btn btn-primary mx-2" type="submit" value="search">
+            </div>
         </div>
       </form>
-
-
-
-
     </div>
   </div>
   <!-- Container wrapper -->
