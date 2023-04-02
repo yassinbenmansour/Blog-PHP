@@ -10,6 +10,8 @@ require('./Database/functions.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content mg System</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
         <!-- Font Awesome -->
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -25,7 +27,8 @@ require('./Database/functions.php');
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
     rel="stylesheet"
     />
-    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.bundle.js" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    
 </head>
 <body>
 
@@ -59,11 +62,30 @@ require('./Database/functions.php');
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
         </li>
-        
-       
-       <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
+
+        <li class="nav-itemn">
+              <div class="dropdown">
+                <a  class="dropdown-toggle nav-link" data-bs-toggle="dropdown" role="button">
+                  Dropdown button
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Link 1</a></li>
+                    <li><a class="dropdown-item" href="#">Link 2</a></li>
+                    <li><a class="dropdown-item" href="#">Link 3</a></li>
+                    <li><a class="dropdown-item-text" href="#">Text Link</a></li>
+                    <li><span class="dropdown-item-text">Just Text</span></li>
+                  </ul>
+        </div>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="seconnecter.php">Deconexion</a>
+        </li>
+          
+        
+        <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact</a>
+          </li>
        
       </ul>
       
@@ -75,15 +97,6 @@ require('./Database/functions.php');
            <div class="input-group-append">
             <input class="btn btn-primary mx-2" type="submit" value="search">
            </div>
-           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-      <li class="nav-item">
-          <a class="nav-link" ><img src="https://icon-library.com/images/online-status-icon/online-status-icon-1.jpg" style="width:25;height:20;"> Status</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="seconnecter.php">Deconexion</a>
-        </li>
-      </ul>
 
         </div>
       </form>
