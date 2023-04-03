@@ -43,8 +43,10 @@
                     <?php
                 endif;
             ?>
+
             </div>
         </div>
+
     </div>
 
     <div class="col-lg-4 col-md-12 col-sm-12 mt-5">
