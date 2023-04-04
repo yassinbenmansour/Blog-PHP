@@ -21,8 +21,10 @@ if(isset($_POST['submit'])){
     if($data = mysqli_query($con,$sql)){
       $user = $data->num_rows ;
 
-      if($user>0){
+      if($user > 0){
+
         $datauser = $data->fetch_assoc();
+        session_start();
         $_SESSION['Admin']= true;
         $_SESSION['User_id'] =$datauser['id'] ;
         $_SESSION['Name'] = $datauser['name'];

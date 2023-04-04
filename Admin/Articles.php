@@ -1,9 +1,6 @@
 <?php
-require('./includes/header.php');
+require('./includes/sidebar.php');
 
-if(!isset($_SESSION['Admin'])){
-    header("Loaction:login.php");
-}
 
 $sqlarticle = "SELECT * FROM articles";
 
@@ -11,7 +8,7 @@ $sqlarticle = "SELECT * FROM articles";
 
 
 
-<div class="container" style="width:80%;height:100%; padding-left:20% ; margin-top:-800px;">
+<div class="container" style="width:80%;height:100%; padding-left:12% ; margin-top:-900px;">
     <h1 class="text-primary">Articles</h1>
     <hr>
 
@@ -19,7 +16,6 @@ $sqlarticle = "SELECT * FROM articles";
   <thead class="bg-light">
     <tr>
       <th>Id</th>
-      <th>Category</th>
       <th>Titre</th>
       <th>Description</th>
       <th>image</th>
@@ -37,22 +33,21 @@ $sqlarticle = "SELECT * FROM articles";
 
     <tr>
         <td><?php echo $articles['id'] ?></td>
-        <td><?php echo $articles['category_id'] ?></td>
         <td><?php echo $articles['title'] ?></td>
         <td><?php echo substr($articles['body'],0,50)."..." ?></td>
         <td><?php echo $articles['image'] ?></td>
         <td><?php echo $articles['author'] ?></td>
         <td><?php echo $articles['created'] ?></td>
         <td>
-            <a href="" class="btn btn-success">
+            <a href="../viewPost.php?id=<?php echo $articles['id'] ?>" class="btn btn-success">
                 <i class="fa fa-eYE"></i>
             </a>
         </td>
         <td>
-            <a href="" class="btn btn-primary">
+            <a href="editarticle.php?id=<?php echo $articles['id'] ?>" class="btn btn-primary">
                 <i class="fa fa-edit"></i>
             </a>
-            <a href="" class="btn btn-danger">
+            <a href="deletearticle.php?id=<?php echo $articles['id'] ?>" class="btn btn-danger">
                 <i class="fa fa-trash"></i>
             </a>
         </td>
