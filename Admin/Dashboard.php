@@ -1,1 +1,5 @@
-<h1>hello</h1>
+<?php
+require('./includes/header.php');
+?>
+
+
