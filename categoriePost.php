@@ -12,8 +12,7 @@
             $idArticle = mysqli_escape_string($con,$_GET['id']);
                 $sql = "SELECT * FROM articles WHERE category_id = '$idArticle'";
                 $output = mysqli_query($con,$sql);
-
-                    while($articles = $output->fetch_assoc()):
+                while($articles = $output->fetch_assoc()):
                     
             ?>
 

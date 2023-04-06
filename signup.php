@@ -74,7 +74,7 @@ if(isset($_POST['submit'])){
   $nom = mysqli_escape_string($con,$_POST['username']);
   $mail =  mysqli_escape_string($con,$_POST['mail']);
   $pwd =  mysqli_escape_string($con,$_POST['pwd']);
-  $created = date("Y-m-d H-s-m");
+  $created = date("Y-m-d H-i-s");
 
   if(empty($nom)){
     $erreur = "Veillez saisi votre Nom ";

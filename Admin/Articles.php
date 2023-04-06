@@ -6,8 +6,6 @@ $sqlarticle = "SELECT * FROM articles";
 
 ?>
 
-
-
 <div class="container" style="width:80%;height:100%; padding-left:12% ; margin-top:-900px;">
     <h1 class="text-primary">Articles</h1>
     <hr>
@@ -52,11 +50,8 @@ $sqlarticle = "SELECT * FROM articles";
             </a>
         </td>
         
-
-
     </tr>
       
-
     <?php 
         endwhile;
     ?>
