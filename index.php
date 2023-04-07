@@ -56,7 +56,7 @@
             ?>
                     <div class="col-4 mt-2 ">
                         <img
-                        src="https://img.freepik.com/vecteurs-libre/sauvez-concept-planete-gens-qui-prennent-soin-terre_23-2148522570.jpg?w=2000"
+                        src="/Admin/images/<?php $articles['image'] ?>"
                         class="img-fluid rounded"
                         alt="Hollywood Sign on The Hill"
                         />

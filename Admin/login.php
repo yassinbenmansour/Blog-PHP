@@ -7,39 +7,36 @@ require('./includes/header.php');
 $erreur = [];
 $message = "";
 
-if(isset($_POST['submit'])){
-  $mail =  mysqli_escape_string($con,$_POST['mail']);
-  $pwd =  mysqli_escape_string($con,$_POST['pwd']);
+if (isset($_POST['submit'])) {
+  $mail =  mysqli_escape_string($con, $_POST['mail']);
+  $pwd =  mysqli_escape_string($con, $_POST['pwd']);
 
-  if(empty($mail)){
+  if (empty($mail)) {
     $erreur = "Veillez saisi votre Email ";
-  }else if(empty($pwd)){
+  } else if (empty($pwd)) {
     $erreur = "Veillez saisi votre mot de passe  ";
-  }else{
+  } else {
     //$pwd = md5($pwd); //sha1()
     $sql = "SELECT * FROM admins WHERE email = '$mail' AND password = '$pwd'";
-    if($data = mysqli_query($con,$sql)){
-      $user = $data->num_rows ;
+    if ($data = mysqli_query($con, $sql)) {
+      $user = $data->num_rows;
 
-      if($user > 0){
+      if ($user > 0) {
 
         $datauser = $data->fetch_assoc();
         session_start();
-        $_SESSION['Admin']= true;
-        $_SESSION['User_id'] =$datauser['id'] ;
+        $_SESSION['Admin'] = true;
+        $_SESSION['User_id'] = $datauser['id'];
         $_SESSION['Name'] = $datauser['name'];
         $_SESSION['Email'] = $datauser['email'];
         header("Location:Dashboard.php");
-      }
-      else {
+      } else {
         $message = "<div class='alert alert-danger'> 
-            Erreur email ou mot de passe incorrect ". mysqli_error($con)."
+            Erreur email ou mot de passe incorrect " . mysqli_error($con) . "
         </div>";
       }
-
     }
   }
-
 }
 
 ?>
@@ -59,23 +56,23 @@ if(isset($_POST['submit'])){
                 <form class="mx-1 mx-md-4" action="login.php" method="post">
 
 
-                <?php
-              if(!empty($erreur)){
+                  <?php
+                  if (!empty($erreur)) {
                     echo "<div class='alert alert-danger'> 
                         $erreur
                     </div>";
-              }else{
-                echo $message ;
-              }
+                  } else {
+                    echo $message;
+                  }
 
-              ?>
+                  ?>
 
-                
+
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" name="mail"  class="form-control"  />
-                      <label class="form-label" >Your Email</label>
+                      <input type="email" name="mail" class="form-control" />
+                      <label class="form-label">Your Email</label>
 
                     </div>
                   </div>
@@ -83,11 +80,11 @@ if(isset($_POST['submit'])){
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" name="pwd" class="form-control"  />
-                      <label class="form-label" >Password</label>
+                      <input type="password" name="pwd" class="form-control" />
+                      <label class="form-label">Password</label>
                     </div>
                   </div>
-                  
+
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" name="submit" class="btn btn-primary btn-lg">Se connecter</button>
@@ -96,7 +93,7 @@ if(isset($_POST['submit'])){
                 </form>
 
               </div>
-             
+
             </div>
           </div>
         </div>
@@ -106,12 +103,10 @@ if(isset($_POST['submit'])){
 </div>
 
 
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
-></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
 
 </body>
+
 </html>
 
 
