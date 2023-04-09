@@ -3,6 +3,8 @@ require('./includes/sidebar.php');
 
 ?>
 
+<title>delete</title>
+
 
 <div class="container" style="width:80%;height:100%; padding-left:20% ; margin-top:-800px;">
     <h1 class="text-primary">Delete article </h1>

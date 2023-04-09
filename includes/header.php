@@ -59,9 +59,7 @@ require('./Database/functions.php');
         <li class="nav-item">
           <a class="nav-link" href="index.php">Articles</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
-        </li>
+  
 
         <li class="nav-itemn">
               <div class="dropdown">
@@ -70,7 +68,6 @@ require('./Database/functions.php');
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="nav-link" href="#"><?php echo $_SESSION['Name'] ;?> <img src="https://w7.pngwing.com/pngs/818/576/png-transparent-windows-media-center-computer-icons-button-windows-media-player-button-angle-windows-grass-thumbnail.png" width="13" height="13"></a></li>
-                    <li><a class="nav-link" href="#">Setting profil</a></li>
                     <li><a class="nav-link" href="deconnexion.php">Deconexion</a></li>
                   </ul>
         </div>
