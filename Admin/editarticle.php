@@ -42,17 +42,20 @@ require('./includes/sidebar.php');
 
       $fileNm = $_FILES['image']['name'];
       $filetmp = $_FILES['image']['tmp_name'];
-      $dest = "images/$fileNm";
+  
+      $dir = "images/";
+      $file = $dir.basename($fileNm);
+  
 
       $sql = "UPDATE articles SET category_id = '$categorie', title='$title',body='$body',image='$image',author='$author',created='$created' WHERE id = $ida";
 
       if (mysqli_query($con, $sql)) {
         //upload photo 
 
-        move_uploaded_file($filetmp, $dest);
+        move_uploaded_file($filetmp, $file);
 
         $message = "<div class='alert alert-success'> 
-            Article modifie  
+            Article ajouter  
 
           </div>";
 
@@ -95,7 +98,7 @@ require('./includes/sidebar.php');
                 while ($catego = $output->fetch_assoc()) :
                 ?>
 
-                  <option value="<?php echo  $catego["id"]; ?>" <?php echo $catego['id'] == $article['category_id'] ? "selected" : ''; ?>>
+                  <option value="<?php echo  $catego["id"]; ?>">
                     <?php echo  $catego["name"]   ?>
 
                   </option>
