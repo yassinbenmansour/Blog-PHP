@@ -22,10 +22,6 @@ $sqladmins = "SELECT COUNT(*) FROM admins";
 $nbradmins = mysqli_query($con, $sqladmins);
 $outputadmins = mysqli_fetch_array($nbradmins)[0];
 
-//nbr of message 
-$sqlmessage = "SELECT count(*) FROM contacts";
-$nbrmessage = mysqli_query($con, $sqlmessage);
-$outputmessage = mysqli_fetch_array($nbrmessage)[0];
 
 
 ?>
@@ -64,12 +60,7 @@ $outputmessage = mysqli_fetch_array($nbrmessage)[0];
         <span class="badge badge-danger ms-2"><?php echo $outputcategorie; ?></span>
       </li>
       <hr>
-      <li class="nav-item m-1">
-        <img src="https://cdn-icons-png.flaticon.com/512/561/561249.png" alt="message" width="30px" height="26px">
-        <a class="" href="Message.php">Messages</a>
-        <span class="badge badge-danger ms-2"><?php echo $outputmessage ?></span>
-      </li>
-      <hr>
+     
       <li class="nav-item m-1">
         <img src="https://cdn-icons-png.flaticon.com/512/9322/9322127.png" alt="admin" width="30px" height="26px">
         <a class="" href="admins.php">Admins</a>
