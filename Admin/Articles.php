@@ -34,7 +34,7 @@ $sqlarticle = "SELECT * FROM articles";
                     <td><?php echo $articles['id'] ?></td>
                     <td><?php echo $articles['title'] ?></td>
                     <td><?php echo substr($articles['body'], 0, 50) . "..." ?></td>
-                    <td> <img class="img-fluid" src="images/<?php echo $articles["image"] ?>" alt="img"> </td>
+                    <td> <img class="img-fluid" src="../images/<?php echo $articles["image"] ?>" alt="img"> </td>
                     <td><?php echo $articles['author'] ?></td>
                     <td><?php echo $articles['created'] ?></td>
                     <td>

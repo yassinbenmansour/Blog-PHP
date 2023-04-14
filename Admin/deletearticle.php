@@ -57,14 +57,14 @@ require('./includes/sidebar.php');
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
                             <label for="">Titre</label>
-                            <input readonly type="text" name="title" class="form-control border" value="<?php echo $plan['title']; ?>" />
+                            <input readonly type="text" name="title" class="form-control border" value="<?php echo $article['title']; ?>" />
                         </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
                             <label for="">Contenu</label>
-                            <textarea readonly cols="30" rows="10" name="body" class="form-control border"><?php echo $plan['body']; ?></textarea>
+                            <textarea readonly cols="30" rows="10" name="body" class="form-control border"><?php echo $article['body']; ?></textarea>
                         </div>
                     </div>
 

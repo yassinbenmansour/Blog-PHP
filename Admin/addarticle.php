@@ -35,16 +35,17 @@ if (isset($_POST['submit'])) {
 
     $fileNm = $_FILES['image']['name'];
     $filetmp = $_FILES['image']['tmp_name'];
-
-    $dir = "images/";
-    $file = $dir.basename($fileNm);
+    $dir = "./images/";
+    $target_file = $dir . basename($fileNm);
 
     $sql = "INSERT into  articles (title,body,image,category_id,author,created)
             VALUES ('$title','$body','$image','$categorie','$author','$created')";
 
     if (mysqli_query($con, $sql)) {
       //upload photo 
-      move_uploaded_file($filetmp, $file);
+      move_uploaded_file($filetmp, $dir);
+
+      
 
       $message = "<div class='alert alert-success'> 
           Article modifie  
